@@ -22,6 +22,7 @@ Jeweler::Tasks.new do |s|
   s.homepage = "http://github.com/spree/spree-static-content"
   s.authors = ["Peter Berkenbosch", "Roman Smirnov"]
   s.add_dependency 'spree_core', ['>= 0.30.0.beta1']
+  s.add_dependency 'ckeditor', '3.5.0'
   #s.has_rdoc = false
   #s.extra_rdoc_files = [ "README.rdoc"]
   #s.rdoc_options = ["--main", "README.rdoc", "--inline-source", "--line-numbers"]
@@ -52,7 +53,7 @@ namespace :spec do
     t.rcov = true
     t.rcov_opts = ['--exclude', 'spec', '--rails']
   end
-  
+
   desc "Print Specdoc for all specs"
   Spec::Rake::SpecTask.new(:doc) do |t|
     t.spec_opts = ["--format", "specdoc", "--dry-run"]
@@ -66,7 +67,7 @@ namespace :spec do
       t.spec_files = FileList["spec/#{sub}/**/*_spec.rb"]
     end
   end
-  
+
   # Hopefully no one has written their extensions in pre-0.9 style
   # desc "Translate specs from pre-0.9 to 0.9 style"
   # task :translate do
@@ -109,3 +110,4 @@ end
 
 # Load any custom rakefiles for extension
 Dir[File.dirname(__FILE__) + '/tasks/*.rake'].sort.each { |f| require f }
+
