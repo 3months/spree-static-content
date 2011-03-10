@@ -1,5 +1,7 @@
 class StaticContentController < Spree::BaseController
 
+  caches_action :show, :layout => false
+
   def show
     path = case params[:path]
     when Array
